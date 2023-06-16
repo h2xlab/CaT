@@ -1,0 +1,6 @@
+[submodule "leaderboard"]
+	path = leaderboard
+	url = ./leaderboard/
+[submodule "scenario_runner"]
+	path = scenario_runner
+	url = ./scenario_runner/
