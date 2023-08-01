@@ -858,7 +858,7 @@ def homography_im2ipm_norm(top_view_region, org_img_size, crop_y, resize_img_siz
 
 import carla
 
-def homography_im2ipm_norm_jim(top_view_region, img_w, img_h, cam_xyz, cam_yaw, K):
+def homography_im2ipm_norm_2(top_view_region, img_w, img_h, cam_xyz, cam_yaw, K):
 
     H_g2cam = np.array(carla.Transform(carla.Location(*cam_xyz),carla.Rotation(yaw=cam_yaw),).get_inverse_matrix())
     H_g2cam = np.concatenate([H_g2cam[:3, 0:2], np.expand_dims(H_g2cam[:3, 3],1)], 1)
@@ -874,8 +874,6 @@ def homography_im2ipm_norm_jim(top_view_region, img_w, img_h, cam_xyz, cam_yaw, 
 
     H_ipmnorm2im = np.matmul(H_g2im, H_ipmnorm2g)
     M_ipm2im_norm = np.matmul(S_im_inv, H_ipmnorm2im)
-
-    # M_ipm2im_norm = torch.from_numpy(M_ipm2im_norm)
 
     return M_ipm2im_norm
 

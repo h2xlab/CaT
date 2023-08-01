@@ -53,9 +53,9 @@ class CatPlanner(nn.Module):
         K[1, 2] -= top_crop
 
 
-        self.M_inv_left = homography_im2ipm_norm_jim(top_view_region, width, height, cam_xyz, cam_yaw=-60, K=K)#.cuda()
-        self.M_inv_middle = homography_im2ipm_norm_jim(top_view_region, width, height, cam_xyz, cam_yaw=0, K=K)#.cuda()
-        self.M_inv_right = homography_im2ipm_norm_jim(top_view_region, width, height, cam_xyz, cam_yaw=60, K=K)#.cuda()
+        self.M_inv_left = homography_im2ipm_norm_2(top_view_region, width, height, cam_xyz, cam_yaw=-60, K=K)#.cuda()
+        self.M_inv_middle = homography_im2ipm_norm_2(top_view_region, width, height, cam_xyz, cam_yaw=0, K=K)#.cuda()
+        self.M_inv_right = homography_im2ipm_norm_2(top_view_region, width, height, cam_xyz, cam_yaw=60, K=K)#.cuda()
 
 
         # Define network
