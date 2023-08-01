@@ -17,8 +17,10 @@ CaT is a deep knowledge distillation framework for effectively teaching a studen
 ## TODO List (comming soon)
 - [ ] Data collection Code
 - [ ] Training Code
-- [x] Evaluation Code
-- [ ] Model Checkpoint
+- [x] Teacher Evaluation Code
+- [x] Student Evaluation Code
+- [x] Teacher Model Checkpoint
+- [x] Student Model Checkpoint
 
 ## Getting Started
 - Please follow [Installation](./docs/INSTALL.md) to get started.
