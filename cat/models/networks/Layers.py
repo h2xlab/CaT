@@ -19,8 +19,7 @@ import torch.nn as nn
 from cat.utils.utils import *
 from typing import Optional, List
 
-# from models.ops.modules import MSDeformAttn, IdentityMSDeformAttn, DropoutMSDeformAttn, DropoutMSDeformAttn_jim
-from cat.models.ops.modules import MSDeformAttn, IdentityMSDeformAttn, DropoutMSDeformAttn_jim
+from cat.models.ops.modules import MSDeformAttn, IdentityMSDeformAttn, DropoutMSDeformAttn
 
 from .Deform_ATTN import _get_activation_fn, _get_clones
 
@@ -93,7 +92,7 @@ class EncoderLayer(nn.Module):
         self.self_attn = IdentityMSDeformAttn(d_model=d_model, n_levels=1)  # q=v,
         self.norm1 = nn.LayerNorm(d_model)
 
-        self.cross_attn = DropoutMSDeformAttn_jim(d_model=d_model, 
+        self.cross_attn = DropoutMSDeformAttn(d_model=d_model, 
                                         n_levels=num_levels, 
                                         n_points=num_points, 
                                         n_heads=num_heads)

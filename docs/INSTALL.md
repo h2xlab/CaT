@@ -43,7 +43,7 @@ export PYTHONPATH=$PYTHONPATH:"${CARLA_ROOT}"/PythonAPI/carla:"${SCENARIO_RUNNER
 
 export SCENARIOS="${LEADERBOARD_ROOT}"/data/all_towns_traffic_scenarios_public.json
 export TEAM_AGENT=team_code/cat_agent.py
-export TEAM_CONFIG=config.yaml
+export TEAM_CONFIG=config/config.yaml
 
 export CHALLENGE_TRACK_CODENAME=SENSORS
 export DEBUG_CHALLENGE=0

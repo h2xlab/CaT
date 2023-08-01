@@ -233,13 +233,6 @@ class RefPntsNoGradGenerator(nn.Module):
             # grid = torch.zeros(grid_l.shape)
             grid = np.zeros(grid_l.shape)
 
-
-
-
-            # Jim added
-            # width = 256
-            # height = 288
-
             width = 480
             height = 224
 
@@ -616,16 +609,15 @@ class EasyTopViewPathway(nn.Module):
                 nn.init.constant_(m.bias, 0)
 
 
-
-class EasyDown2TopViewPathway_jim(nn.Module):
+class EasyDown2TopViewPathway(nn.Module):
     def __init__(self, input_channels, batch_norm=False, init_weights=True):
-        super(EasyDown2TopViewPathway_jim, self).__init__()
+        super(EasyDown2TopViewPathway, self).__init__()
 
         self.input_channels = input_channels
         # self.num_proj = num_proj
         # self.use_proj = use_proj
         layers = []
-        output_channels = input_channels * 2
+        output_channels = input_channels // 2
         layers += [nn.MaxPool2d(kernel_size=2, stride=2)]
         conv2d = nn.Conv2d(input_channels, output_channels, kernel_size=3, padding=1)
         layers += [conv2d, nn.BatchNorm2d(output_channels), nn.ReLU(inplace=True)]
@@ -654,44 +646,6 @@ class EasyDown2TopViewPathway_jim(nn.Module):
                 nn.init.normal_(m.weight, 0, 0.01)
                 nn.init.constant_(m.bias, 0)
 
-
-
-# class EasyDown2TopViewPathway(nn.Module):
-#     def __init__(self, input_channels, batch_norm=False, init_weights=True):
-#         super(EasyDown2TopViewPathway, self).__init__()
-
-#         self.input_channels = input_channels
-#         # self.num_proj = num_proj
-#         # self.use_proj = use_proj
-#         layers = []
-#         output_channels = input_channels // 2
-#         layers += [nn.MaxPool2d(kernel_size=2, stride=2)]
-#         conv2d = nn.Conv2d(input_channels, output_channels, kernel_size=3, padding=1)
-#         layers += [conv2d, nn.BatchNorm2d(output_channels), nn.ReLU(inplace=True)]
-#         conv2d_add = nn.Conv2d(output_channels, output_channels, kernel_size=3, padding=1)
-#         layers += [conv2d_add, nn.BatchNorm2d(output_channels), nn.ReLU(inplace=True)]
-#         layers += [conv2d_add, nn.BatchNorm2d(output_channels), nn.ReLU(inplace=True)]
-#         self.feature = nn.Sequential(*layers)
-        
-#         if init_weights:
-#             self._initialize_weights()
-
-#     def forward(self, input):
-
-#         return self.feature(input)
-
-#     def _initialize_weights(self):
-#         for m in self.modules():
-#             if isinstance(m, nn.Conv2d):
-#                 nn.init.normal_(m.weight.data, 0.0, 0.02)
-#                 if m.bias is not None:
-#                     m.bias.data.zero_()
-#             elif isinstance(m, nn.BatchNorm2d):
-#                 nn.init.constant_(m.weight, 1)
-#                 nn.init.constant_(m.bias, 0)
-#             elif isinstance(m, nn.Linear):
-#                 nn.init.normal_(m.weight, 0, 0.01)
-#                 nn.init.constant_(m.bias, 0)
 
 class MSTopViewPathway(nn.Module):
     def __init__(self, input_channels, num_proj, batch_norm=False, init_weights=True, use_proj=True):

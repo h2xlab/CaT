@@ -482,8 +482,6 @@ class deepFeatureExtractor_EfficientNet(nn.Module):
         # after passing blocks[7]    : H/16 x W/16
         # after passing conv_stem    : H/32 x W/32
 
-        # Jim commented this
-        # self.fixList = ['blocks.0.0','bn']
         self.fixList = []
 
         for name, parameters in self.encoder.named_parameters():
