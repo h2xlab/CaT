@@ -1,5 +1,5 @@
 #!/bin/bash
-export CARLA_ROOT=/data2/zanming/CARLA09101
+export CARLA_ROOT=[Path to CARLA]
 export CARLA_SERVER=${CARLA_ROOT}/CarlaUE4.sh
 export PYTHONPATH=$PYTHONPATH:${CARLA_ROOT}/PythonAPI
 export PYTHONPATH=$PYTHONPATH:${CARLA_ROOT}/PythonAPI/carla
@@ -20,10 +20,10 @@ export RESUME=True
 
 export ROUTES=leaderboard/data/longest6/longest6.xml
 export TEAM_AGENT=team_code/teacher_agent.py
-export TEAM_CONFIG=config.yaml
-export CHECKPOINT_ENDPOINT=test_result.json
+export TEAM_CONFIG=config/config_teacher.yaml
+export CHECKPOINT_ENDPOINT=teacher_eval_result.json
 export SCENARIOS=leaderboard/data/longest6/eval_scenarios.json
-export SAVE_PATH=test_result/
+export SAVE_PATH=teacher_eval_result/
 
 
 python3 ${LEADERBOARD_ROOT}/leaderboard/leaderboard_evaluator_local.py \

@@ -24,6 +24,7 @@ CaT is a deep knowledge distillation framework for effectively teaching a studen
 - Please follow [Installation](./docs/INSTALL.md) to get started.
 
 
+
 ## Evaluation
 To run evaluation, first start the CARLA server
 
@@ -31,8 +32,8 @@ To run evaluation, first start the CARLA server
 cd CARLA_ROOT
 ./CarlaUE4.sh
 ```
-
-Make sure all environment varibles are setup correctly, then run
+### Student Evaluation
+Make sure all environment varibles are setup correctly.then run
 
 ```
 ROUTES=[Path to Route File] bash ./leaderboard/scripts/run_evaluation.sh
@@ -40,6 +41,14 @@ ROUTES=[Path to Route File] bash ./leaderboard/scripts/run_evaluation.sh
 
 where `ROUTES` points to a route `xml` file (e.g. `leaderboard/data/routes_devtest.xml`) . 
 
+### Teacher Evaluation
+
+To evaluate teacher model on the Longest6 benchmark, run the following after changing the environment varibles accordinly in the script
+
+```
+bash ./leaderboard/scripts/local_evaluation.sh
+```
+The teacher model checkpoint can be found [here](https://drive.google.com/drive/folders/1F3uUNN0EsGQv1-FVqccBKNa6-mT0lJ3L?usp=drive_link)
 
 ## Citation
 If you find this repo useful, please cite

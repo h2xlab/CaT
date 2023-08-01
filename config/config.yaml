@@ -78,6 +78,5 @@ no_forecast: False
 no_refine: False
 #### MODEL DIR ####
 pixels_per_meter: 5 #4
-model_dir: weights/teacher_model.th
-# model_dir: weights/cat_model.th
+model_dir: weights/cat_model.th
 bra_model_dir: weights/cat_bra_model.th
